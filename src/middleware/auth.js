@@ -4,7 +4,7 @@ const userAuth = async(req, res , next)=>{
       try{
              const {token} = req.cookies;
              if(!token){
-                  return res.status(404).json({message : "Please Login !"})
+                  return res.status(401).send( "Please Login !")
                }
              const objectUserId = await jwt.verify(token , "ProjectMan22");
             
